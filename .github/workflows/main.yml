@@ -1,69 +1,26 @@
-name: JMeter
+name: Test JMeter Action
 
 on:
   push:
     branches:
       - master
-      - release
+  pull_request:
+    branches: [master]
 
 jobs:
   action_build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
 
-      - name: Lint all YAML files in the directory
-        uses: ibiqlik/action-yamllint@master
-
-      - name: Run JMeter Action 1 C4Life
+      - name: Run JMeter Action
         uses: ./
         with:
-          testFilePath: ./Script/S01_SimpleExample.jmx
-          outputReportsFolder: ./reports
+          testFilePath: Script/S01_SimpleExample.jmx
+          outputReportsFolder: reports/
           args: "--loglevel INFO"
 
-      # - name: Run JMeter Action 2 Intaller App
-      #   uses: ./
-      #   with:
-      #     testFilePath: Installer.jmx
-      #     outputReportsFolder: reports/intaller/
-      #     args: "--loglevel INFO"
-
-      # - name: Run JMeter Action 3 Device Management
-      #   uses: ./
-      #   with:
-      #     testFilePath: DM.jmx
-      #     outputReportsFolder: reports/device_management/
-      #     args: "--loglevel INFO"
-
-      # - name: Run JMeter Action 4 Titan
-      #   uses: ./
-      #   with:
-      #     testFilePath: Titan.jmx
-      #     outputReportsFolder: reports/titan/
-      #     args: "--loglevel INFO"
-
-      - name: Reporting C4life
-        uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v1
         with:
-          name: jmeter-test-results-c4life
-          path: ./reports/
-
-      # - name: Reporting Installer
-      #   uses: actions/upload-artifact@v1
-      #   with:
-      #     name: jmeter-test-results-installer
-      #     path: reports/intaller/
-
-      # - name: Reporting Device Management
-      #   uses: actions/upload-artifact@v1
-      #   with:
-      #     name: jmeter-test-results-device-management
-      #     path: reports/device_management/
-
-      # - name: Titan Installer
-      #   uses: actions/upload-artifact@v1
-      #   with:
-      #     name: jmeter-test-results-titan
-      #     path: reports/titan/
+          name: jmeter-test-results
+          path: reports/
