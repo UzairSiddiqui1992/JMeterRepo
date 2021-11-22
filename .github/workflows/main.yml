@@ -25,6 +25,6 @@ jobs:
           args: "--loglevel INFO"
 
       - uses: actions/upload-artifact@v1
-          with:
+        with:
           name: jmeter-test-results
           path: reports/
