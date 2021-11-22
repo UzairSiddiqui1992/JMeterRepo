@@ -19,8 +19,8 @@ jobs:
       - name: Run JMeter Action 1 C4Life
         uses: ./
         with:
-          testFilePath: Script/S01_SimpleExample.jmx
-          outputReportsFolder: reports/
+          testFilePath: ./Script/S01_SimpleExample.jmx
+          outputReportsFolder: ./reports/
           args: "--loglevel INFO"
 
       # - name: Run JMeter Action 2 Intaller App
@@ -48,7 +48,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: jmeter-test-results-c4life
-          path: reports/
+          path: ./reports/
 
       # - name: Reporting Installer
       #   uses: actions/upload-artifact@v1
