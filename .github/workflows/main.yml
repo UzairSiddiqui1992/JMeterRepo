@@ -21,5 +21,11 @@ jobs:
         uses: ./
         with:
           testFilePath: Script/S01_SimpleExample.jmx
-          outputReportsFolder: reports/
+          outputReportsFolder: reports
           args: "--loglevel INFO"
+
+    - name: Upload Results
+      uses: actions/upload-artifact@v2
+      with:
+      name: jmeter-results
+      path: result.jtl
