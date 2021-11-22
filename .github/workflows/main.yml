@@ -13,8 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # - name: Lint all YAML files in the directory
-      #   uses: ibiqlik/action-yamllint@master
+      - name: Lint all YAML files in the directory
+        uses: ibiqlik/action-yamllint@master
 
       - name: Run JMeter Action 1 C4Life
         uses: ./
