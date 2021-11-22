@@ -12,15 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
 
-      - name: Run JMeter Action
+      - name: perf Action for Jmeter
+        uses: QAInsights/PerfAction@2.0
+        
+      - name: Run JMeter Action 1 MAVS
         uses: ./
         with:
           testFilePath: Script/S01_SimpleExample.jmx
-          outputReportsFolder: reports/
+          outputReportsFolder: reports/MAVS
           args: "--loglevel INFO"
-
-      - uses: actions/upload-artifact@v1
-        with:
-          name: jmeter-test-results
-          path: reports/
