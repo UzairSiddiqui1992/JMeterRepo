@@ -17,7 +17,7 @@ jobs:
       - name: perf Action for Jmeter
         uses: QAInsights/PerfAction@2.0
         
-      - name: Run JMeter Action 1 MAVS
+      - name: Run JMeter S01_SimpleExample
         uses: ./
         with:
           testFilePath: Script/S01_SimpleExample.jmx
