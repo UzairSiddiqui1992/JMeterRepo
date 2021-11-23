@@ -24,6 +24,13 @@ jobs:
           outputReportsFolder: reports
           args: "--loglevel INFO"
 
+      - name: Run JMeter S01_SimpleExample
+        uses: ./
+        with:
+          testFilePath: Script/C4Life_Automate_APIs_V1.0.jmx
+          outputReportsFolder: reports
+          args: "--loglevel INFO"
+
       - uses: actions/upload-artifact@v1
         with:
           name: jmeter-test-results
