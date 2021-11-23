@@ -9,7 +9,7 @@ on:
 
 jobs:
   action_build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/checkout@v1
@@ -24,7 +24,7 @@ jobs:
           outputReportsFolder: reports
           args: "--loglevel INFO"
 
-      - name: Run JMeter S01_SimpleExample
+      - name: Run JMeter C4Life_APIs
         uses: ./
         with:
           testFilePath: Script/C4Life_Automate_APIs_V1.0.jmx
